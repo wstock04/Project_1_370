@@ -13,3 +13,6 @@ app.use("/record", records);
 app.listen(PORT, () => {
   console.log(`Server listening on port ${PORT}`);
 });
+
+//Your connection string: mongodb+srv://cluster29500.gjrse.mongodb.net
+//password AgKzZ0TzzbnLoGOT
