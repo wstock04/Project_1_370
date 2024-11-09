@@ -1,33 +1,32 @@
-// App.js
 import React from 'react';
 import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
-import Home from './components/Home';
 import AddMovie from './components/AddMovie';
-import MovieDetail from './components/MovieDetail';
-import UpdateMovie from './components/UpdateMovie';
-import DeleteMovie from './components/DeleteMovie';
+import MovieDetails from './components/MovieDetails';
+import MoviesList from './components/MovieList';
+
+
+import './App.css'; // Assuming you have some basic styles
 
 function App() {
-    return (
-        <Router>
-            <div>
-                <header>
-                    <h1>Movie Collection</h1>
-                    <nav>
-                        <Link to="/">Home</Link>
-                        <Link to="/add-movie">Add Movie</Link>
-                    </nav>
-                </header>
-                <Routes>
-                    <Route path="/" element={<Home />} />
-                    <Route path="/add-movie" element={<AddMovie />} />
-                    <Route path="/movies/:id" element={<MovieDetail />} />
-                    <Route path="/movies/:id/edit" element={<UpdateMovie />} />
-                    <Route path="/movies/:id/delete" element={<DeleteMovie />} />
-                </Routes>
-            </div>
-        </Router>
-    );
+  return (
+    <Router>
+      <div className="App">
+        <nav>
+          <ul>
+            <li><Link to="/">Home</Link></li>
+            <li><Link to="/add">Add Movie</Link></li>
+          </ul>
+        </nav>
+
+        <Routes>
+          <Route path="/" element={<MoviesList />} />
+          <Route path="/movie/:id" element={<MovieDetails />} />
+          <Route path="/add" element={<AddMovie />} />
+          {/* You might want to add routes for editing and deleting movies */}
+        </Routes>
+      </div>
+    </Router>
+  );
 }
 
 export default App;
