@@ -1,66 +1,38 @@
+import dotenv from 'dotenv';
+dotenv.config();
+
 import express from 'express';
 import mongoose from 'mongoose';
 import cors from 'cors';
-import dotenv from 'dotenv';
-
-dotenv.config();
+import GroceryItem from './models/GroceryItem.js';
 
 const app = express();
-app.use(cors());
 app.use(express.json());
+app.use(cors());
 
-// MongoDB Connection
-mongoose.set('strictQuery', false); // This suppresses the deprecation warning for find() without await
-
+// Connect to MongoDB using MONGO_URI from .env
 mongoose.connect(process.env.MONGO_URI)
-  .then(() => console.log('Connected to MongoDB'))
-  .catch(err => console.error('Could not connect to MongoDB', err));
+.then(() => console.log('MongoDB connected'))
+.catch(err => console.log(err));
 
-// Define Schema
-const grocerySchema = new mongoose.Schema({
-  name: {
-    type: String,
-    required: true,
-    trim: true
-  },
-  quantity: {
-    type: Number,
-    required: true,
-    min: 0
-  }
-});
-const Grocery = mongoose.model('Grocery', grocerySchema);
-
-// CRUD routes
-app.post('/api/groceries', async (req, res) => {
-  const grocery = new Grocery(req.body);
-  try {
-    const savedGrocery = await grocery.save();
-    res.status(201).json(savedGrocery);
-  } catch (err) {
-    res.status(400).json({ message: err.message });
-  }
+// Define routes using async functions directly
+app.get('/api/items', async (req, res) => {
+  const items = await GroceryItem.find();
+  res.json(items);
 });
 
-app.get('/api/groceries', async (req, res) => {
-  try {
-    const groceries = await Grocery.find();
-    res.json(groceries);
-  } catch (err) {
-    res.status(500).json({ message: err.message });
-  }
+app.post('/api/items', async (req, res) => {
+  const newItem = new GroceryItem({ name: req.body.name });
+  const savedItem = await newItem.save();
+  res.json(savedItem);
 });
 
-app.delete('/api/groceries/:id', async (req, res) => {
-  try {
-    const deletedGrocery = await Grocery.findByIdAndDelete(req.params.id);
-    if (!deletedGrocery) return res.status(404).json({ message: 'Grocery not found' });
-    res.json({ message: 'Grocery deleted' });
-  } catch (err) {
-    res.status(500).json({ message: err.message });
-  }
+app.delete('/api/items/:id', async (req, res) => {
+  await GroceryItem.findByIdAndDelete(req.params.id);
+  res.json({ message: 'Item deleted' });
 });
 
-// Start the server
-const PORT = process.env.PORT || 5000;
-app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
+// Use PORT directly from .env file
+app.listen(process.env.PORT, () => {
+  console.log(`Server running on port ${process.env.PORT}`);
+});

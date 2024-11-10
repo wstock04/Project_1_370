@@ -1,21 +1,13 @@
-<div class="container mt-5">
-    <h1>Grocery List</h1>
-  
-    <form (ngSubmit)="addGrocery()" class="mb-4">
-      <div class="form-group">
-        <input type="text" class="form-control" [(ngModel)]="newGrocery.name" name="name" placeholder="Item name" required>
-      </div>
-      <div class="form-group">
-        <input type="number" class="form-control" [(ngModel)]="newGrocery.quantity" name="quantity" placeholder="Quantity" min="1" required>
-      </div>
-      <button type="submit" class="btn btn-primary">Add Item</button>
-    </form>
-  
-    <ul class="list-group">
-      <li *ngFor="let grocery of groceries" class="list-group-item d-flex justify-content-between align-items-center">
-        {{grocery.name}} - {{grocery.quantity}}
-        <button (click)="deleteGrocery(grocery._id)" class="btn btn-danger btn-sm">Delete</button>
+<div>
+    <h2>Grocery List</h2>
+    <input [(ngModel)]="newItem" placeholder="Add a new item" />
+    <button (click)="addItem()">Add</button>
+    
+    <ul>
+      <li *ngFor="let item of items">
+        {{ item.name }}
+        <button (click)="deleteItem(item._id)">Delete</button>
       </li>
     </ul>
-  
   </div>
+

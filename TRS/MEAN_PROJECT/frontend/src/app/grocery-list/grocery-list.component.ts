@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { GroceryService } from '../services/grocery.service';
+import { GroceryService } from '../grocery.service';
 
 @Component({
   selector: 'app-grocery-list',
@@ -7,36 +7,31 @@ import { GroceryService } from '../services/grocery.service';
   styleUrls: ['./grocery-list.component.css']
 })
 export class GroceryListComponent implements OnInit {
-  groceries: any[] = [];
-  newGrocery: any = { name: '', quantity: 1 };
+  items: any[] = [];
+  newItem: string = '';
 
-  constructor(private groceryService: GroceryService) { }
+  constructor(private groceryService: GroceryService) {}
 
   ngOnInit(): void {
-    this.getGroceries();
+    this.getItems();
   }
 
-  getGroceries(): void {
-    this.groceryService.getGroceries().subscribe(
-      data => this.groceries = data,
-      error => console.error('Error fetching groceries:', error)
-    );
+  getItems(): void {
+    this.groceryService.getItems().subscribe(items => this.items = items);
   }
 
-  addGrocery(): void {
-    this.groceryService.addGrocery(this.newGrocery).subscribe(
-      () => {
-        this.getGroceries(); // Refresh the list
-        this.newGrocery = { name: '', quantity: 1 }; // Reset form
-      },
-      error => console.error('Error adding grocery:', error)
-    );
+  addItem(): void {
+    if (this.newItem) {
+      this.groceryService.addItem(this.newItem).subscribe(item => {
+        this.items.push(item);
+        this.newItem = '';
+      });
+    }
   }
 
-  deleteGrocery(id: string): void {
-    this.groceryService.deleteGrocery(id).subscribe(
-      () => this.getGroceries(), // Refresh the list
-      error => console.error('Error deleting grocery:', error)
-    );
+  deleteItem(id: string): void {
+    this.groceryService.deleteItem(id).subscribe(() => {
+      this.items = this.items.filter(item => item._id !== id);
+    });
   }
 }

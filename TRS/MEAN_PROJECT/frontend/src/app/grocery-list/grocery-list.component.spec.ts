@@ -8,7 +8,7 @@ describe('GroceryListComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [GroceryListComponent]
+      declarations: [GroceryListComponent]
     })
     .compileComponents();
 
