@@ -2,13 +2,15 @@ import dotenv from 'dotenv';
 import express from 'express';
 import mongoose from 'mongoose';
 import movieAPIRoutes from './Routes/movieAPIRoutes.js'; // Note the added .js extension
+import cors from 'cors';
+
+const app = express();
 
 // Load environment variables
 dotenv.config();
 
-// Creates express app
-const app = express();
-
+// Enable CORS for all routes
+app.use(cors());
 app.use(express.json());
 app.use((req, res, next) => {
     console.log(req.path, req.method);

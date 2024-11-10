@@ -37,7 +37,6 @@ export const createMovie = async (req, res) => {
   }
 };
 
-// delete a movie
 export const deleteMovie = async (req, res) => {
   const { id } = req.params;
 
@@ -51,8 +50,10 @@ export const deleteMovie = async (req, res) => {
     return res.status(404).json({ error: 'No such movie' });
   }
 
-  res.status(200).json({ message: 'Movie deleted successfully', movie });
+  // Send the deleted movie object back so the frontend can use its _id
+  res.status(200).json(movie);
 };
+
 
 // update a movie
 export const updateMovie = async (req, res) => {
