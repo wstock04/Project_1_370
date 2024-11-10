@@ -11,6 +11,10 @@
    ```
 
 ## Starting the MEAN Project
+
+## Important Note
+Ensure that `npm` and Angular CLI are installed globally.
+
 1. Navigate to the project directory:
    ```bash
    cd ./MEAN_PROJECT
@@ -24,5 +28,4 @@
    npm run ng-project
    ```
 
-## Important Note
-Ensure that `npm` and Angular CLI are installed globally.
+
