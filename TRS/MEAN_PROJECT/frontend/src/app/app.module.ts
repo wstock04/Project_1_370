@@ -16,7 +16,7 @@ import { GroceryListComponent } from './grocery-list/grocery-list.component';
     BrowserModule,
     HttpClientModule,
     FormsModule,
-    RouterModule.forRoot([]) // Add RouterModule here with an empty route array
+    RouterModule.forRoot([]) 
   ],
   providers: [],
   bootstrap: [AppComponent]
