@@ -4,6 +4,7 @@
     "nodemon": "^2.0.22"
   },
   "scripts": {
+    "setup": "npm install && cd frontend && npm install && cd ../backend && npm install",
     "ng-project": "concurrently \"cd backend && nodemon app.js\" \"cd frontend && ng serve\""
   }
 }
