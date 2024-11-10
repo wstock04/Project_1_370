@@ -6,35 +6,21 @@ skipFiles = [ ".gitignore", "package.json" ]
 id = "process1"
 name = "To Do"
 
-  [[processes.tasks]]
-  id = "task1"
-  title = ""
-  description = ""
-  tag = "backlog"
-  linkFiles = [ ]
-  dueDate = ""
-  checkList = [ ]
-  priority = ""
-  linkCommits = [ ]
-
 [[processes]]
 id = "process2"
 name = "In Progress"
-
-  [[processes.tasks]]
-  id = "task2"
-  title = ""
-  description = ""
-  tag = "bug"
-  linkFiles = [ ]
-  dueDate = ""
-  checkList = [ ]
-  priority = ""
-  linkCommits = [ ]
 
 [[processes]]
 id = "process3"
 name = "Done"
 tasks = [
-  { id = "task3", title = "Created MERN and MEAN projects.", description = "Completed setup and initial development for both MERN and MEAN projects.", tag = "completed", linkFiles = [ ], dueDate = "", checkList = [ ], priority = "high", linkCommits = [ ] }
+  { id = "task3", title = "Created MERN and MEAN projects", description = "Completed setup and initial development for both MERN and MEAN projects.", tag = "completed", linkFiles = [ ], dueDate = "", checkList = [ ], priority = "high", linkCommits = [ ] },
+  { id = "task4", title = "Database Setup for React (MERN)", description = "Set up MongoDB database for MERN project with initial data schema.", tag = "completed", linkFiles = [ ], dueDate = "", checkList = [ ], priority = "high", linkCommits = [ ] },
+  { id = "task5", title = "Created API Routes for React (MERN)", description = "Implemented API endpoints for managing grocery list in MERN stack.", tag = "completed", linkFiles = [ ], dueDate = "", checkList = [ ], priority = "high", linkCommits = [ ] },
+  { id = "task6", title = "Model Creation for React (MERN)", description = "Created Mongoose models for handling grocery list items in MERN project.", tag = "completed", linkFiles = [ ], dueDate = "", checkList = [ ], priority = "high", linkCommits = [ ] },
+  { id = "task7", title = "Frontend Development for React (MERN)", description = "Developed React frontend for grocery list with add and delete functionality.", tag = "completed", linkFiles = [ ], dueDate = "", checkList = [ ], priority = "high", linkCommits = [ ] },
+  { id = "task8", title = "Database Setup for Angular (MEAN)", description = "Set up MongoDB database for MEAN project with initial data schema.", tag = "completed", linkFiles = [ ], dueDate = "", checkList = [ ], priority = "high", linkCommits = [ ] },
+  { id = "task9", title = "Created API Routes for Angular (MEAN)", description = "Implemented API endpoints for managing grocery list in MEAN stack.", tag = "completed", linkFiles = [ ], dueDate = "", checkList = [ ], priority = "high", linkCommits = [ ] },
+  { id = "task10", title = "Model Creation for Angular (MEAN)", description = "Created Mongoose models for handling grocery list items in MEAN project.", tag = "completed", linkFiles = [ ], dueDate = "", checkList = [ ], priority = "high", linkCommits = [ ] },
+  { id = "task11", title = "Frontend Development for Angular (MEAN)", description = "Developed Angular frontend for grocery list with add and delete functionality.", tag = "completed", linkFiles = [ ], dueDate = "", checkList = [ ], priority = "high", linkCommits = [ ] }
 ]
