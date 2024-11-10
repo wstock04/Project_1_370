@@ -1,10 +1,9 @@
 {
   "devDependencies": {
     "concurrently": "^9.1.0",
-    "nodemon": "^2.0.0"
+    "nodemon": "^2.0.22"
   },
   "scripts": {
-    "ag-project": "concurrently \"cd backend && nodemon app.js\" \"cd frontend && ng serve\""
+    "ng-project": "concurrently \"cd backend && nodemon app.js\" \"cd frontend && ng serve\""
   }
 }
-

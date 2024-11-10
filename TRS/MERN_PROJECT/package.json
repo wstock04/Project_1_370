@@ -1,7 +1,7 @@
 {
   "devDependencies": {
     "concurrently": "^9.1.0",
-    "nodemon": "^2.0.0"
+    "nodemon": "^2.0.22"
   },
   "scripts": {
     "react-project": "concurrently \"cd backend && nodemon server.js\" \"cd frontend && npm start\""
