@@ -1,12 +1,12 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Home from './pages/Home';
 import Navbar from './Components/Navigation';
-import { MoviesContextProvider } from './Context/MovieContext'; // Import your MoviesContextProvider
+import { MoviesContextProvider } from './Context/MovieContext'; 
 
 function App() {
   return (
     <div className="App">
-      <MoviesContextProvider> {/* Wrap the provider here */}
+      <MoviesContextProvider> 
         <BrowserRouter>
           <Navbar />
           <div className="pages">
