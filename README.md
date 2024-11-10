@@ -5,7 +5,7 @@ This will load both the backend and frontend.
 
 TO START MEAN PROJECT  
 CD into `./MEAN_PROJECT`  
-**Do: `npm run setup`**
-This will install dependencies for the angular project.
+**Do: `npm run setup`**  
+This will install dependencies for the angular project.  
 **Do: `npm run ng-project`**  
 This will load both the backend and frontend.  
