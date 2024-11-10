@@ -1,0 +1,73 @@
+import mongoose from 'mongoose';
+import Movie from '../Models/movieModel.js';
+
+// get all movies
+export const getMovies = async (req, res) => {
+  const movies = await Movie.find({}).sort({ createdAt: -1 });
+
+  res.status(200).json(movies);
+};
+
+// get a single movie
+export const getMovie = async (req, res) => {
+  const { id } = req.params;
+
+  if (!mongoose.Types.ObjectId.isValid(id)) {
+    return res.status(404).json({ error: 'No such movie' });
+  }
+
+  const movie = await Movie.findById(id);
+
+  if (!movie) {
+    return res.status(404).json({ error: 'No such movie' });
+  }
+
+  res.status(200).json(movie);
+};
+
+// create a new movie
+export const createMovie = async (req, res) => {
+  const { title, genre, releaseDate, rating, duration } = req.body;
+
+  try {
+    const movie = await Movie.create({ title, genre, releaseDate, rating, duration });
+    res.status(200).json(movie);
+  } catch (error) {
+    res.status(400).json({ error: error.message });
+  }
+};
+
+// delete a movie
+export const deleteMovie = async (req, res) => {
+  const { id } = req.params;
+
+  if (!mongoose.Types.ObjectId.isValid(id)) {
+    return res.status(404).json({ error: 'No such movie' });
+  }
+
+  const movie = await Movie.findByIdAndDelete(id);
+
+  if (!movie) {
+    return res.status(404).json({ error: 'No such movie' });
+  }
+
+  res.status(200).json({ message: 'Movie deleted successfully', movie });
+};
+
+// update a movie
+export const updateMovie = async (req, res) => {
+  const { id } = req.params;
+  const updates = req.body;
+
+  if (!mongoose.Types.ObjectId.isValid(id)) {
+    return res.status(404).json({ error: 'No such movie' });
+  }
+
+  const movie = await Movie.findByIdAndUpdate(id, updates, { new: true });
+
+  if (!movie) {
+    return res.status(404).json({ error: 'No such movie' });
+  }
+
+  res.status(200).json(movie);
+};
