@@ -1,11 +1,11 @@
 TO START MERN PROJECT:  
-CD into ./MERN_PROJECT  
-==Do: npm run react-project  
+CD into `./MERN_PROJECT`  
+**Do: `npm run react-project`**  
 This will load both the backend and frontend.  
 
 TO START MEAN PROJECT  
-CD into ./MEAN_PROJECT  
-==Do: nom run setup  
+CD into `./MEAN_PROJECT`  
+**Do: `npm run setup`**
 This will install dependencies for the angular project.
-==Do: npm run ng-project  
+**Do: `npm run ng-project`**  
 This will load both the backend and frontend.  
