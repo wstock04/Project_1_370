@@ -10,7 +10,7 @@
    npm run react-project
    ```
 
-### Important Note
+# Important Note
 Ensure that `npm` and Angular CLI are installed globally.
 
 ## Starting the MEAN Project
