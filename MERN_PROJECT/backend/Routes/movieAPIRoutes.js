@@ -15,7 +15,4 @@ router.post('/', createMovie);
 // DELETE a movie
 router.delete('/:id', deleteMovie);
 
-// UPDATE a movie
-router.patch('/:id', updateMovie);
-
 export default router;

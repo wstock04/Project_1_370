@@ -2,4 +2,3 @@ GET /movies ---> Returns a list of all movies from database.
 POST /movies ---> Creates a new movie form.
 GET /movies/:id ---> Returns a single movie from database.
 DELETE /movies/:id ---> Deletes a single movie.
-PATCH /movies/:id ---> Updates a single movie.
